@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cute Foodie Treats — Commercial Use License</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito+Sans:opsz,wght@6..12,400;6..12,500;6..12,600;6..12,700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFF3F6;
+    --paper:#FFFFFF;
+    --ink:#3A2A34;
+    --ink-soft:#7A6470;
+    --pink:#F58FB0;
+    --pink-deep:#E4628E;
+    --pink-pale:#FDE1EA;
+    --mint:#5FBFA0;
+    --mint-pale:#E4F5EE;
+    --berry:#E4628E;
+    --berry-pale:#FCE3EB;
+    --line:#F3D8E2;
+    --lavender:#B79DE0;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Nunito Sans', sans-serif;
+    font-size:16px;
+    line-height:1.7;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{ color:var(--pink-deep); }
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    position:relative;
+    padding:72px 40px 56px;
+    text-align:center;
+    overflow:hidden;
+    background:var(--bg);
+  }
+  .masthead::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 8% 15%, rgba(245,143,176,0.28), transparent 42%),
+      radial-gradient(circle at 92% 8%, rgba(183,157,224,0.22), transparent 45%),
+      radial-gradient(circle at 50% 100%, rgba(95,191,160,0.14), transparent 50%);
+    pointer-events:none;
+  }
+  .masthead > *{ position:relative; }
+  .blob-row{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-bottom:22px;
+  }
+  .blob{
+    width:10px; height:10px;
+    border-radius:50%;
+  }
+  .blob:nth-child(1){ background:var(--pink); }
+  .blob:nth-child(2){ background:var(--lavender); }
+  .blob:nth-child(3){ background:var(--mint); }
+  .eyebrow{
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--pink-deep);
+    margin:0 0 20px;
+    font-weight:700;
+  }
+  .masthead h1{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:clamp(32px, 5vw, 54px);
+    line-height:1.12;
+    margin:0 0 16px;
+    color:var(--ink);
+    letter-spacing:-0.01em;
+  }
+  .masthead h1 span{
+    color:var(--pink-deep);
+  }
+  .masthead p.sub{
+    max-width:580px;
+    margin:0 auto;
+    color:var(--ink-soft);
+    font-size:17px;
+  }
+
+  /* ---------- Ticket ---------- */
+  .ticket-wrap{
+    display:flex; justify-content:center;
+    margin:-8px auto 0;
+    padding:0 20px 60px;
+  }
+  .ticket{
+    position:relative;
+    background:var(--paper);
+    border-radius:28px;
+    box-shadow:0 18px 40px -18px rgba(228,98,142,0.35);
+    width:100%; max-width:600px;
+    padding:32px 34px 28px;
+    border:1px solid var(--line);
+  }
+  .ticket-top{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:18px;
+  }
+  .ticket h2{
+    font-family:'Quicksand', sans-serif;
+    font-size:21px; font-weight:700;
+    margin:0;
+    color:var(--ink);
+  }
+  .badge{
+    font-family:'Space Mono', monospace;
+    font-size:11px;
+    font-weight:700;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    background:var(--pink-pale);
+    color:var(--pink-deep);
+    padding:7px 14px;
+    border-radius:999px;
+  }
+  .ticket-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 18px;
+    margin-bottom:20px;
+  }
+  .ticket-item{
+    background:var(--bg);
+    border-radius:14px;
+    padding:12px 14px;
+  }
+  .ticket-item .label{
+    font-family:'Space Mono', monospace;
+    font-size:10.5px;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-soft);
+    margin:0 0 4px;
+  }
+  .ticket-item .value{
+    font-family:'Nunito Sans', sans-serif;
+    font-weight:700;
+    font-size:14px;
+    margin:0;
+    display:flex; align-items:center; gap:6px;
+  }
+  .ticket-item.no .value{ color:var(--berry); }
+  .ticket-item.yes .value{ color:var(--mint); }
+  .ticket-item .dot{
+    width:7px; height:7px; border-radius:50%;
+    flex-shrink:0;
+  }
+  .ticket-item.yes .dot{ background:var(--mint); }
+  .ticket-item.no .dot{ background:var(--berry); }
+  .ticket-foot{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    color:var(--ink-soft);
+    text-align:center;
+  }
+
+  /* ---------- Layout ---------- */
+  .layout{
+    max-width:1180px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:250px 1fr;
+    padding:0 40px 100px;
+  }
+  nav.toc{
+    position:sticky; top:24px; align-self:start;
+    padding:32px 20px 32px 0;
+    max-height:calc(100vh - 48px);
+    overflow-y:auto;
+  }
+  nav.toc .toc-label{
+    font-family:'Space Mono', monospace;
+    font-size:11px; font-weight:700;
+    letter-spacing:0.12em; text-transform:uppercase;
+    color:var(--pink-deep);
+    margin:0 0 14px;
+  }
+  nav.toc ol{ list-style:none; margin:0; padding:0; }
+  nav.toc a{
+    display:block;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-weight:600;
+    font-size:13.5px;
+    padding:8px 12px;
+    border-radius:10px;
+    margin-bottom:2px;
+    transition:background .15s ease, color .15s ease;
+  }
+  nav.toc a:hover{ background:var(--pink-pale); color:var(--pink-deep); }
+
+  main{
+    padding:36px 0 0 48px;
+    min-width:0;
+  }
+  section.clause{
+    background:var(--paper);
+    border-radius:24px;
+    padding:34px 36px;
+    margin-bottom:20px;
+    box-shadow:0 6px 22px -14px rgba(58,42,52,0.12);
+    scroll-margin-top:24px;
+  }
+  .clause-num{
+    display:inline-block;
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    font-weight:700;
+    color:var(--pink-deep);
+    background:var(--pink-pale);
+    padding:4px 12px;
+    border-radius:999px;
+    margin:0 0 12px;
+  }
+  .clause h2{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:25px;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .clause h3{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    font-size:16.5px;
+    margin:22px 0 8px;
+    color:var(--pink-deep);
+  }
+  .clause p{ margin:0 0 12px; color:var(--ink); }
+  .clause ul{ margin:0 0 14px; padding-left:20px; }
+  .clause li{ margin:5px 0; }
+  .lede{ color:var(--ink-soft); font-size:14.5px; }
+
+  .pill-row{ display:flex; flex-wrap:wrap; gap:8px; margin:14px 0 4px; }
+  .pill{
+    font-family:'Space Mono', monospace;
+    font-size:11.5px;
+    font-weight:700;
+    padding:6px 13px;
+    border-radius:999px;
+    background:var(--mint-pale);
+    color:#2E7A61;
+  }
+
+  .case-grid{ display:grid; gap:10px; margin:16px 0 8px; }
+  .case{
+    display:flex; gap:12px;
+    padding:15px 17px;
+    border-radius:16px;
+    align-items:flex-start;
+    font-size:14.5px;
+  }
+  .case.ok{ background:var(--mint-pale); }
+  .case.no{ background:var(--berry-pale); }
+  .case .mark{
+    font-family:'Space Mono', monospace;
+    font-weight:700; font-size:13px;
+    flex-shrink:0; width:22px; height:22px;
+    display:flex; align-items:center; justify-content:center;
+    border-radius:50%; color:#fff; margin-top:1px;
+  }
+  .case.ok .mark{ background:var(--mint); }
+  .case.no .mark{ background:var(--berry); }
+  .case b{ display:block; font-weight:700; margin-bottom:2px; color:var(--ink); }
+
+  .callout{
+    background:var(--pink-pale);
+    padding:16px 18px;
+    border-radius:16px;
+    margin:16px 0;
+    font-size:14.5px;
+    color:#8A4A63;
+  }
+  .callout.mint{ background:var(--mint-pale); color:#2E5F4D; }
+  .callout strong{ color:var(--ink); }
+
+  .def-list dt{
+    font-family:'Quicksand', sans-serif;
+    font-weight:700;
+    color:var(--pink-deep);
+    margin-top:16px;
+    font-size:15px;
+  }
+  .def-list dd{ margin:4px 0 0; color:var(--ink-soft); }
+
+  table.quickref{
+    width:100%; border-collapse:collapse;
+    margin:8px 0 4px; font-size:14px;
+  }
+  table.quickref td{
+    padding:11px 6px;
+    border-bottom:1px solid var(--line);
+    vertical-align:top;
+  }
+  table.quickref td:first-child{
+    color:var(--pink-deep);
+    font-weight:700;
+    width:34%;
+    font-family:'Nunito Sans', sans-serif;
+    font-size:13.5px;
+  }
+
+  footer{
+    text-align:center;
+    padding:20px 20px 70px;
+    color:var(--ink-soft);
+    font-family:'Space Mono', monospace;
+    font-size:12px;
+  }
+  footer .heart{ color:var(--pink); }
+
+  @media (max-width: 880px){
+    .layout{ grid-template-columns:1fr; padding:0 20px 60px; }
+    nav.toc{ position:static; max-height:none; padding:20px 0; margin-bottom:8px; }
+    main{ padding:20px 0 0; }
+    .masthead{ padding:52px 20px 40px; }
+    section.clause{ padding:26px 22px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <div class="blob-row"><span class="blob"></span><span class="blob"></span><span class="blob"></span></div>
+  <p class="eyebrow">Commercial Use License · Version 1.0</p>
+  <h1>Cute Foodie Treats<br><span>15 Premium Food Illustrations</span></h1>
+  <p class="sub">Everything you need to know about using these illustration assets — what's allowed, what isn't, and what you're actually purchasing.</p>
+</div>
+
+<div class="ticket-wrap">
+  <div class="ticket">
+    <div class="ticket-top">
+      <h2>Quick Reference</h2>
+      <span class="badge">© 2026</span>
+    </div>
+    <div class="ticket-grid">
+      <div class="ticket-item"><p class="label">License Type</p><p class="value">Non-exclusive</p></div>
+      <div class="ticket-item"><p class="label">Format</p><p class="value">High-res transparent PNG</p></div>
+      <div class="ticket-item yes"><p class="label">Attribution</p><p class="value"><span class="dot"></span>Not required</p></div>
+      <div class="ticket-item yes"><p class="label">Commercial Use</p><p class="value"><span class="dot"></span>Permitted</p></div>
+      <div class="ticket-item yes"><p class="label">Physical Merchandise</p><p class="value"><span class="dot"></span>Permitted</p></div>
+      <div class="ticket-item no"><p class="label">Digital Asset Resale</p><p class="value"><span class="dot"></span>Prohibited</p></div>
+      <div class="ticket-item no"><p class="label">Asset Redistribution</p><p class="value"><span class="dot"></span>Prohibited</p></div>
+      <div class="ticket-item no"><p class="label">AI / ML Training Use</p><p class="value"><span class="dot"></span>Prohibited</p></div>
+    </div>
+    <p class="ticket-foot">Term: Perpetual, subject to termination for breach</p>
+  </div>
+</div>
+
+<div class="layout">
+  <nav class="toc">
+    <p class="toc-label">Contents</p>
+    <ol>
+      <li><a href="#s1">1 · Definitions</a></li>
+      <li><a href="#s2">2 · License Grant</a></li>
+      <li><a href="#s3">3 · Who May Use the License</a></li>
+      <li><a href="#s4">4 · Permitted Personal Use</a></li>
+      <li><a href="#s5">5 · Permitted Commercial Use</a></li>
+      <li><a href="#s6">6 · Physical Products & Merchandise</a></li>
+      <li><a href="#s7">7 · Modification Rights</a></li>
+      <li><a href="#s8">8 · Digital Products</a></li>
+      <li><a href="#s9">9 · Prohibited Uses</a></li>
+      <li><a href="#s10">10 · Attribution</a></li>
+      <li><a href="#s11">11 · Ownership & Copyright</a></li>
+      <li><a href="#s12">12 · Non-Exclusivity</a></li>
+      <li><a href="#s13">13 · License Transfer</a></li>
+      <li><a href="#s14">14 · Backup Copies</a></li>
+      <li><a href="#s15">15 · License Term</a></li>
+      <li><a href="#s16">16 · Termination for Breach</a></li>
+      <li><a href="#s17">17 · No Refund Policy</a></li>
+      <li><a href="#s18">18 · Product Updates</a></li>
+      <li><a href="#s19">19 · As-Is Disclaimer</a></li>
+      <li><a href="#s20">20 · Your Responsibility</a></li>
+      <li><a href="#s21">21 · Third-Party Rights</a></li>
+      <li><a href="#s22">22 · No Exclusive Rights</a></li>
+      <li><a href="#s23">23 · Examples of Permitted Use</a></li>
+      <li><a href="#s24">24 · Examples of Prohibited Use</a></li>
+      <li><a href="#s25">25 · What You Are Purchasing</a></li>
+      <li><a href="#s26">26 · Acceptance of Terms</a></li>
+    </ol>
+  </nav>
+
+  <main>
+
+    <section class="clause" id="s1">
+      <p class="clause-num">Clause 01</p>
+      <h2>Definitions</h2>
+      <dl class="def-list">
+        <dt>Seller</dt>
+        <dd>The creator and/or rights holder of the digital illustration assets included in Cute Foodie Treats — 15 Premium Food Illustrations.</dd>
+        <dt>Buyer / You</dt>
+        <dd>The individual or legal entity that lawfully purchased or obtained a licensed copy of the Product. The License is granted to the original purchaser and may not be transferred, resold, sublicensed, or assigned to another person or entity except where expressly permitted by this License.</dd>
+        <dt>Assets</dt>
+        <dd>The original digital illustration files included with the Product, including the supplied transparent PNG files and any other files expressly identified as part of the Product.</dd>
+        <dt>Finished Product</dt>
+        <dd>A final creative work in which an Asset has been incorporated into a broader design or composition and is not reasonably usable or extractable as the original standalone Asset. Examples include a printed poster, menu, packaging design, social media graphic, greeting card, or physical merchandise containing an Asset as part of the overall design.</dd>
+        <dt>Digital Product</dt>
+        <dd>A product distributed in digital form, including downloadable files, templates, graphics, clipart, illustrations, design resources, digital stickers, printable files, or similar digital goods.</dd>
+      </dl>
+    </section>
+
+    <section class="clause" id="s2">
+      <p class="clause-num">Clause 02</p>
+      <h2>License Grant</h2>
+      <p>Subject to your compliance with this License, the Seller grants you a license to use the Assets for personal and commercial creative purposes that is:</p>
+      <div class="pill-row">
+        <span class="pill">Non-exclusive</span>
+        <span class="pill">Non-transferable</span>
+        <span class="pill">Non-sublicensable</span>
+        <span class="pill">Worldwide</span>
+        <span class="pill">Perpetual*</span>
+      </div>
+      <p class="lede">*subject to termination for breach.</p>
+      <p>This License grants you permission to <strong>use</strong> the Assets. It does <strong>not</strong> transfer ownership or copyright in the original Assets to you. You are purchasing a license to use the artwork, not ownership of the underlying artwork.</p>
+    </section>
+
+    <section class="clause" id="s3">
+      <p class="clause-num">Clause 03</p>
+      <h2>Who May Use the License?</h2>
+      <p class="lede">The license is intended for the original purchaser.</p>
+      <h3>Individual Buyer</h3>
+      <p>If you purchased the Product as an individual, you may use the Assets for your own permitted personal and commercial projects.</p>
+      <h3>Business Buyer</h3>
+      <p>If the Product was purchased by a business or organization, the Assets may be used by that business or organization for its permitted projects. The Assets may not be shared with unrelated individuals, customers, communities, or other businesses for their independent use.</p>
+      <h3>Client Work</h3>
+      <p>If you are a designer, freelancer, agency, or other service provider, you may use the Assets in projects created for your clients. The client may receive and use the resulting Finished Product. However, the original Asset files may not be transferred to the client as standalone files unless the client separately purchases or lawfully obtains their own license.</p>
+    </section>
+
+    <section class="clause" id="s4">
+      <p class="clause-num">Clause 04</p>
+      <h2>Permitted Personal Use</h2>
+      <p>You may use the Assets for personal creative projects, including but not limited to: personal artwork, personal social media content, digital journals, planners, scrapbooks, wallpapers, invitations, greeting cards, personal presentations, personal stationery, personal creative projects, and non-commercial educational projects.</p>
+      <p class="lede">You may modify the Assets as reasonably necessary for these uses.</p>
+    </section>
+
+    <section class="clause" id="s5">
+      <p class="clause-num">Clause 05</p>
+      <h2>Permitted Commercial Use</h2>
+      <p>Commercial use is permitted. You may incorporate the Assets into commercial projects and Finished Products, including but not limited to:</p>
+      <table class="quickref">
+        <tr><td>Digital Content</td><td>Social media graphics, posts & stories, advertisements, promotional graphics, website & blog graphics, digital marketing materials, email graphics, presentations, online promotional materials</td></tr>
+        <tr><td>Business Materials</td><td>Menus, promotional materials, brochures, flyers, posters, signage, packaging designs, labels, business cards, marketing materials, branded content, client presentations</td></tr>
+        <tr><td>Client Projects</td><td>Branding collateral, marketing campaigns, social media designs, promotional artwork, menu & packaging designs, advertising materials, website graphics, printed materials</td></tr>
+      </table>
+      <p class="lede">The resulting client work must comply with the restrictions in this License.</p>
+    </section>
+
+    <section class="clause" id="s6">
+      <p class="clause-num">Clause 06</p>
+      <h2>Physical Products and Merchandise</h2>
+      <p>You may use the Assets to create physical Finished Products for personal or commercial purposes — including stickers, greeting cards, postcards, posters, art prints, notebooks, journals, apparel, tote bags, mugs, packaging, product labels, stationery, and other physical products where the Asset is incorporated into a broader design. You may sell these Finished Products to end customers.</p>
+      <div class="callout"><strong>Important condition:</strong> the Asset must be incorporated into a Finished Product and must not be distributed in a form that allows the customer to obtain or extract the original standalone digital Asset as a downloadable file.</div>
+      <div class="case-grid">
+        <div class="case ok"><span class="mark">✓</span><div><b>Permitted</b>A printed sticker containing an illustration from the Product.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Not permitted</b>A downloadable PNG sticker containing the original illustration.</div></div>
+      </div>
+    </section>
+
+    <section class="clause" id="s7">
+      <p class="clause-num">Clause 07</p>
+      <h2>Modification Rights</h2>
+      <p>You may modify the Assets for permitted uses, including: resizing, scaling, cropping, rotating, recoloring, adding text, adding backgrounds, adding effects, changing placement, combining Assets with other Assets or artwork, incorporating Assets into layouts, creating compositions, masking or partially obscuring an Asset, or adapting an Asset to fit a Finished Product.</p>
+      <p class="lede">However, modification does not give you ownership of the original Asset or the right to redistribute the modified Asset as a standalone digital asset.</p>
+    </section>
+
+    <section class="clause" id="s8">
+      <p class="clause-num">Clause 08</p>
+      <h2>Digital Products — Limited Permission</h2>
+      <p>You may use the Assets in commercial digital content where the Asset forms part of a broader Finished Product or design — for example, social media graphics, advertisements, website designs, digital presentations, digital invitations, digital marketing materials, digital publications, or finished digital artwork.</p>
+      <div class="callout"><strong>Standalone digital resale is prohibited.</strong> You may not sell or distribute the Asset itself, even if it has been slightly modified.</div>
+      <div class="case-grid">
+        <div class="case ok"><span class="mark">✓</span><div><b>Permitted</b>A digital poster containing an illustration, typography, background, and other design elements.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Not permitted</b>A downloadable PNG containing the illustration by itself, or a downloadable "cute food clipart" product containing the original Assets.</div></div>
+      </div>
+    </section>
+
+    <section class="clause" id="s9">
+      <p class="clause-num">Clause 09</p>
+      <h2>Prohibited Uses</h2>
+      <p class="lede">The following uses are strictly prohibited.</p>
+
+      <h3>9.1 — Reselling the Original Assets</h3>
+      <p>You may not sell, license, lease, rent, gift, or otherwise transfer the original Asset files as standalone files. This includes selling individual PNG files from the Product.</p>
+
+      <h3>9.2 — Redistributing the Assets</h3>
+      <p>You may not redistribute the Assets through file-sharing websites, public folders, cloud storage links, online communities, forums, messaging groups, social media, websites, repositories, download sites, shared drives, or private/public asset libraries. You may not make the Assets available to others for independent use.</p>
+
+      <h3>9.3 — Repackaging or Creating Competing Asset Bundles</h3>
+      <p>You may not use the Assets to create or contribute to another illustration bundle, clipart bundle, PNG bundle, sticker asset pack, design resource pack, digital asset library, stock collection, or similar competing digital asset product.</p>
+
+      <h3>9.4 — Uploading to Stock or Asset Marketplaces</h3>
+      <p>You may not upload, submit, publish, license, or distribute the Assets as standalone stock or digital assets on any stock, illustration, clipart, digital asset, graphics, print-on-demand, or downloadable resource marketplace — in original form or with minor modifications intended to disguise or repackage them.</p>
+
+      <h3>9.5 — Claiming the Original Artwork as Your Own</h3>
+      <p>You may not falsely claim that you created or own the original illustrations. You may describe your work as <em>"A design created using licensed illustration assets."</em></p>
+
+      <h3>9.6 — Trademark, Logo, or Exclusive Brand Asset Use</h3>
+      <p>You may use the Assets as part of ordinary branding and marketing materials. However, you may not use an Asset as the primary logo, trademark, service mark, or other distinctive brand identifier in a manner that gives you exclusive ownership or trademark rights over the underlying illustration. Because this License is non-exclusive, the same Asset may be licensed to other customers.</p>
+
+      <h3>9.7 — AI/ML Training and Dataset Use</h3>
+      <p>You may not use the Assets as training data, datasets, machine-learning datasets, AI training material, model fine-tuning material, model evaluation datasets, or inputs for developing or training an AI/ML model. You may not use the Assets to create a competing AI-generated asset library.</p>
+
+      <h3>9.8 — Using the Assets to Create Competing AI or Digital Asset Products</h3>
+      <p>You may not use the Assets as source material for producing a competing collection of digital assets intended for resale or redistribution, including a substantially similar asset library derived from the purchased Assets.</p>
+    </section>
+
+    <section class="clause" id="s10">
+      <p class="clause-num">Clause 10</p>
+      <h2>Attribution</h2>
+      <p>Attribution is <strong>not required</strong> for permitted personal or commercial use. You do not need to credit the Seller in social media posts, advertisements, client projects, websites, packaging, merchandise, printed materials, or commercial projects. Attribution is appreciated but optional.</p>
+    </section>
+
+    <section class="clause" id="s11">
+      <p class="clause-num">Clause 11</p>
+      <h2>Ownership and Copyright</h2>
+      <p>The Assets remain owned by, or licensed to, the Seller to the extent permitted by applicable law. Nothing in this License transfers ownership of the original Assets to the Buyer. Purchasing the Product does not mean that you acquire copyright ownership, exclusive rights, the right to sublicense, or the right to redistribute the Assets. You receive only the usage rights expressly granted by this License.</p>
+    </section>
+
+    <section class="clause" id="s12">
+      <p class="clause-num">Clause 12</p>
+      <h2>Non-Exclusivity</h2>
+      <p>This License is non-exclusive. The Seller may continue to sell the Product, license the Assets to other customers, distribute the Assets through other lawful channels, and use the Assets for the Seller's own projects. No Buyer receives exclusive rights to an individual Asset unless a separate written agreement explicitly states otherwise.</p>
+    </section>
+
+    <section class="clause" id="s13">
+      <p class="clause-num">Clause 13</p>
+      <h2>License Transfer</h2>
+      <p>This License may not be transferred or resold. You may not purchase the Product and then give your license to another person or business. If another person or business needs to use the Assets independently, they should obtain their own license.</p>
+      <div class="callout mint"><strong>Exception for Finished Products:</strong> you may transfer or sell a Finished Product containing the Assets to your customer or end user, provided that the recipient receives the Finished Product rather than the original standalone Asset files.</div>
+    </section>
+
+    <section class="clause" id="s14">
+      <p class="clause-num">Clause 14</p>
+      <h2>Backup Copies</h2>
+      <p>You may keep reasonable backup copies of the purchased files for your own use. Backup copies must remain under your control and may not be distributed, shared, sold, or made publicly accessible.</p>
+    </section>
+
+    <section class="clause" id="s15">
+      <p class="clause-num">Clause 15</p>
+      <h2>License Term</h2>
+      <p>This License is perpetual for permitted uses, provided that you comply with all terms. Your license does not expire simply because the Product is no longer available for sale. However, the Seller may terminate this License if you materially violate its terms.</p>
+    </section>
+
+    <section class="clause" id="s16">
+      <p class="clause-num">Clause 16</p>
+      <h2>Termination for Breach</h2>
+      <p>If you violate this License, the Seller may terminate your license. Upon termination, you must:</p>
+      <ul>
+        <li>stop using the Assets;</li>
+        <li>stop distributing any unauthorized copies;</li>
+        <li>remove the Assets from products or services where continued use is prohibited by the termination;</li>
+        <li>delete the original Assets and copies under your control where reasonably required.</li>
+      </ul>
+      <p class="lede">Termination does not eliminate liability for violations that occurred before termination.</p>
+    </section>
+
+    <section class="clause" id="s17">
+      <p class="clause-num">Clause 17</p>
+      <h2>No Refund Through This License</h2>
+      <p>This License does not establish or replace the refund policy of the platform through which the Product was purchased. Refund requests, if applicable, are subject to the applicable marketplace's policies and the Seller's stated refund policy.</p>
+    </section>
+
+    <section class="clause" id="s18">
+      <p class="clause-num">Clause 18</p>
+      <h2>Product Updates</h2>
+      <p>The Seller may, at their discretion, update, replace, or improve the Product — including corrected files, improved artwork, additional files, revised documentation, or updated license documentation. Unless explicitly stated otherwise, an update does not automatically grant additional rights beyond those described in the applicable License.</p>
+    </section>
+
+    <section class="clause" id="s19">
+      <p class="clause-num">Clause 19</p>
+      <h2>As-Is Disclaimer</h2>
+      <p>The Assets are provided on an "as-is" basis to the extent permitted by applicable law. The Seller does not guarantee that every Asset will be suitable for every particular commercial, technical, printing, manufacturing, or design purpose. You are responsible for reviewing the Assets before using them in a commercial product or production workflow.</p>
+    </section>
+
+    <section class="clause" id="s20">
+      <p class="clause-num">Clause 20</p>
+      <h2>Your Responsibility</h2>
+      <p>You are responsible for ensuring that your specific use of the Assets complies with this License, applicable laws and regulations, third-party rights, the requirements of your client or business, and any platform-specific rules applicable to your Finished Product. The Seller does not grant rights to third-party intellectual property that may be independently present in a Buyer's project.</p>
+    </section>
+
+    <section class="clause" id="s21">
+      <p class="clause-num">Clause 21</p>
+      <h2>Third-Party Rights</h2>
+      <p>This License applies only to the Assets supplied with the Product. If you combine an Asset with another element — font, photograph, trademark, logo, character, artwork, music, or other third-party material — you are responsible for obtaining any additional permissions required for that material. This License does not grant permission to use third-party intellectual property.</p>
+    </section>
+
+    <section class="clause" id="s22">
+      <p class="clause-num">Clause 22</p>
+      <h2>No Exclusive Rights</h2>
+      <p>Because the Product is licensed non-exclusively, you acknowledge that other customers may use the same Assets in commercial projects, that you cannot prevent other licensed customers from using the same Assets, and that you cannot claim exclusive rights over an illustration simply because you used it first.</p>
+    </section>
+
+    <section class="clause" id="s23">
+      <p class="clause-num">Clause 23</p>
+      <h2>Examples of Permitted Use</h2>
+      <p class="lede">The following examples are permitted, provided all other terms of this License are followed.</p>
+      <div class="case-grid">
+        <div class="case ok"><span class="mark">✓</span><div><b>Social Media</b>You use the matcha mochi illustration in an Instagram post promoting your café.</div></div>
+        <div class="case ok"><span class="mark">✓</span><div><b>Menu</b>You incorporate the bingsu illustration into a restaurant menu.</div></div>
+        <div class="case ok"><span class="mark">✓</span><div><b>Client Project</b>You are a freelance designer and use the tanghulu illustration in a client's promotional campaign.</div></div>
+        <div class="case ok"><span class="mark">✓</span><div><b>Physical Merchandise</b>You create and sell printed tote bags featuring a larger composition containing several licensed illustrations.</div></div>
+        <div class="case ok"><span class="mark">✓</span><div><b>Sticker Product</b>You create physical stickers incorporating the illustrations and sell the printed stickers.</div></div>
+        <div class="case ok"><span class="mark">✓</span><div><b>Digital Poster</b>You create a digital poster using an illustration, typography, background, and other design elements and sell the finished poster — provided the original Asset cannot reasonably be extracted and reused as a standalone asset.</div></div>
+      </div>
+    </section>
+
+    <section class="clause" id="s24">
+      <p class="clause-num">Clause 24</p>
+      <h2>Examples of Prohibited Use</h2>
+      <div class="case-grid">
+        <div class="case no"><span class="mark">✕</span><div><b>PNG Resale</b>You sell matcha-mochi.png as a standalone downloadable file.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>New Clipart Bundle</b>You combine the purchased illustrations with other PNGs and sell them as "100 Cute Food PNGs."</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Stock Upload</b>You submit the bingsu illustration to a stock marketplace as your own stock asset.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Sharing the Bundle</b>You upload the ZIP to a public Google Drive folder and share the link.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Client Receives the Source Assets</b>You send all 15 original PNG files to your client so that they can independently reuse them — not permitted under your individual license; the client should obtain their own license.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Digital Sticker Pack</b>You turn the illustrations into downloadable PNG stickers and sell the sticker files.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>AI Dataset</b>You upload the Assets into a dataset for training or fine-tuning an AI model.</div></div>
+        <div class="case no"><span class="mark">✕</span><div><b>Exclusive Logo</b>You use the bingsu illustration as your company's exclusive trademark and claim exclusive ownership over the underlying artwork.</div></div>
+      </div>
+    </section>
+
+    <section class="clause" id="s25">
+      <p class="clause-num">Clause 25</p>
+      <h2>What You Are Actually Purchasing</h2>
+      <div class="callout mint"><strong>You are purchasing:</strong> a license to use the supplied illustration Assets under the terms of this Commercial Use License.</div>
+      <p><strong>You are not purchasing:</strong></p>
+      <ul>
+        <li>copyright ownership;</li>
+        <li>exclusive ownership;</li>
+        <li>the right to redistribute the original files;</li>
+        <li>the right to resell the Assets;</li>
+        <li>the right to create competing asset packs;</li>
+        <li>the right to upload the Assets to stock marketplaces;</li>
+        <li>the right to sublicense the Assets.</li>
+      </ul>
+    </section>
+
+    <section class="clause" id="s26">
+      <p class="clause-num">Clause 26</p>
+      <h2>Acceptance of Terms</h2>
+      <p>By downloading, accessing, or using the Assets, you acknowledge that you have read, understood, and agreed to this License. If you do not agree to these terms, you must not use the Assets.</p>
+      <div class="callout">For requests that fall outside the permissions granted by this License, obtain written permission from the Seller through the contact information provided on the product's sales page before proceeding.</div>
+    </section>
+
+  </main>
+</div>
+
+<footer>
+  Made with <span class="heart">♥</span> for Cute Foodie Treats — 15 Premium Food Illustrations · Commercial Use License, Version 1.0<br>
+  © 2026 Seller. All rights reserved.
+</footer>
+
+</body>
+</html>
